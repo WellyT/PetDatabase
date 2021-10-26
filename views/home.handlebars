@@ -1,0 +1,101 @@
+<main>
+  <h1>
+    Pet Database
+  </h1>
+
+
+  <input type="button" class="btn-home" value="Novo Pet" onclick="Modal.open()">
+
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>pet</th>
+        <th>raca</th>
+        <th>Dono</th>
+        <th>Contato</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each pets}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.nome}}</td>
+        <td>{{this.idade}}</td>
+        <td>{{this.pet}}</td>
+        <td>{{this.raca}}</td>
+        <td>{{this.nomeDono}}</td>
+        <td>{{this.contatoDono}}</td>
+        <td>
+          <a href="/edit/{{id}}">
+            <button class="none">
+              <span class="material-icons-outlined edit">
+                edit
+              </span>
+            </button>
+          </a>
+        </td>
+        <td><a href="/delet/{{id}}"><button class="none">
+              <span class="material-icons-outlined delet">
+                delete
+              </span>
+            </button></a>
+        </td>
+      </tr>
+
+      {{/each}}
+    </tbody>
+  </table>
+</main>
+
+<div class="modal-overlay">
+  <div class="modal">
+    <h2>Novo PET</h2>
+    <div id="form">
+      <form action="/add" method="POST">
+        <p>Nome: </p>
+        <input class="form-control" id="nome" type="text" name="nome">
+        <p>Idade: </p>
+        <input class="form-control" id="idade" type="number" name="idade">
+        <p>Pet: </p>
+        <select id="pet" name="pet">
+          <option value=""></option>
+          <option value="cachorro">Cachorro</option>
+          <option value="gato">gato</option>
+        </select>
+        <p>Raça: </p>
+        <input class="form-control" id="raca" type="text" name="raca">
+        <p>Nome do Dono</p>
+        <input class="form-control" id="nomeDono" type="text" name="nomeDono">
+        <p>Contato do Dono</p>
+        <input class="form-control" id="contatoDono" type="text" name="contatoDono">
+        <div class="actions">
+          <input type="button" class="button cancel" value="Cancelar" onclick="Modal.close()">
+          <button type="submit" class="button btn-cad">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const Modal = {
+    open() {
+      document.querySelector('.modal-overlay').classList.add('active')
+      document.querySelector('#nome').value = ''
+      document.querySelector('#pet').value = ''
+      document.querySelector('#idade').value = ''
+      document.querySelector('#raca').value = ''
+      document.querySelector('#nomeDono').value = ''
+      document.querySelector('#contatoDono').value = ''
+    },
+    close() {
+      document.querySelector('.modal-overlay').classList.remove('active')
+
+    }
+  }
+</script>
