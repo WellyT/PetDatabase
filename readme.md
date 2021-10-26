@@ -7,8 +7,8 @@
 - Caso queira mudar o banco de dados va para src/database/database.js e siga as instruções
 
 ## Instruções
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
+- O conjunto mínimo de tecnologias utilizadas foram: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
+- Foi criado um passo a passo de como rodar a aplicação;
 
 
 ## Proposta
